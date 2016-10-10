@@ -30,21 +30,31 @@ switch(command){
     myTweets();
   break;
   
-  // case 'spotify-this-song':
-  //   myTweets();
-  // break;
+  case 'spotify-this-song':
+    if(s){
+      spotifySong(s);
+    }
+    else{
+      spotifySong('Gangsters Paradise');
+    }
+  break;
 
-  // case 'movies-this':
-  //   myTweets();
-  // break;
+  case 'movies-this':
+    if(s){
+      movieInfo(s)
+    }
+    else{
+      movieInfo('Mr. Nobody')
+    }
+  break;
 
-  // case 'do-what-it-says':
-  //   myTweets();
-  // break;
+  case 'do-what-it-says':
+    justDoIt();
+  break;
 
   default:
-
-    console.log('{Enter one of the following commands: my-tweets, spotify-this-song, movies-this, do-what-it-says')
+    console.log('{Enter one of the following commands: my-tweets, spotify-this-song, movies-this, do-what-it-says');
+    break;
 }
 
 
@@ -52,20 +62,25 @@ switch(command){
 function myTweets(){
   var screenName = {screen_name: 'muhammeta27'};
   client.get('statuses/user_timeline', screenName, function(error, tweets, response) {
-      if(!error){
-        for (var i=0;i<tweets.length;i++){
-          var postDate = tweets[i].created_at
-          console.log('@Muhammeta27: ' + tweets[i].text = "Tweeted at: " + postDate);
-          console.log('-------------------');
-        }
+    if(!error){
+      for (var i=0;i<tweets.length;i++){
+        var postDate = tweets[i].created_at
+        console.log('@Muhammeta27: ' + tweets[i].text + "Tweeted at: " + postDate);
+        console.log('-------------------');
       }
-      else{
-        console.log('Error!');
-      }
-    });
+    }
+    else{
+      console.log('Error!');
+    }
+  });
 }
 
+// Logic for Spotify command
 
+
+
+
+// Logic to get OMDB info
 
 
 

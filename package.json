@@ -1,0 +1,26 @@
+{
+  "name": "liri-node-app",
+  "version": "1.0.0",
+  "description": "liri app that returns Twitter, IMDB, and Spotify",
+  "main": "liri.js",
+  "dependencies": {
+    "request": "^2.75.0",
+    "spotify": "^0.3.0",
+    "twitter": "^1.4.0"
+  },
+  "devDependancies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muhammeta7/liri-node-app.git"
+  },
+  "author": "Muhammet Aydin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muhammeta7/liri-node-app/issues"
+  },
+  "homepage": "https://github.com/muhammeta7/liri-node-app#readme",
+  "devDependencies": {}
+}
