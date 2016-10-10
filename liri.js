@@ -6,7 +6,6 @@ var spotify = require('spotify');
 var client = new twitter(keys.twitterKeys);
 var request = require('request');
 
-
 // Arguments array
 var nodeArgv = process.argv;
 var command = process.argv[2];
@@ -63,25 +62,25 @@ function myTweets(){
   var screenName = {screen_name: 'muhammeta27'};
   client.get('statuses/user_timeline', screenName, function(error, tweets, response) {
     if (!error) {
-      for (var i=0;i<tweets.length;i++){
+      for (var i=0; i<tweets.length; i++){
         var postDate = tweets[i].created_at;
-        console.log('@Muhammeta27: ' + tweets[i].text + "Tweeted at: " + postDate);
+        console.log('@Muhammeta27: ' + tweets[i].text + " Tweeted at: " + postDate);
         console.log('-------------------');
 
         // append info to log.txt
-        fs.appendFile('log.txt', '@Muhammeta27: ' + tweets[i].text + 'Tweeted At: ' + date.substring(0, 19));
+        fs.appendFile('log.txt', '@Muhammeta27: ' + tweets[i].text + ' Tweeted At: ' + postDate.substring(0, 19));
         fs.appendFile('log.txt', '-----------------------');
       }
     }
     else{
-      console.log('Error!');
+      console.log(error);
     }
   });
 }
 
 // Logic for Spotify command
 function spotifySong(){
-  spotify.search({ type: 'track', query: song }, function(err, data) {
+  spotify.search({ type: 'track', query: s }, function( error, data) {
     if( !error ){
       for( var i=0; i<data.tracks.items.length; i++){
         var songInfo = data.tracks.items[i];
@@ -142,6 +141,7 @@ function movieInfo(){
     else{
       console.log('Error!');
     }
+  });
 }
 
 
