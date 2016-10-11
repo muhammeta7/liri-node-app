@@ -109,7 +109,7 @@ function spotifySong(){
 
 // Logic to get OMDB info
 function movieInfo(){
-  var omdbURL = 'http://www.omdbapi.com/?t=' + movie + '&plot=short&tomatoes=true';
+  var omdbURL = 'http://www.omdbapi.com/?t=' + s + '&plot=short&tomatoes=true';
   request(omdbURL, function (error, response, body){
     if(!error && response.statusCode == 200){
       var body = JSON.parse(body);
