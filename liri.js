@@ -162,7 +162,7 @@ function movieInfo(s){
 
 // Logic to get do-what-it-says info
 function justDoIt(){
-  fs.readfile('random.txt', 'utf8', function(error,data){
+  fs.readFile('random.txt', 'utf8', function(error,data){
     var text = data.split(',');
     spotifySong(text[1]);
   });
