@@ -4,7 +4,7 @@ Rutgers Coding Bootcamp Week 10 assignment was to create a LIRI app similar to t
   
   * 'my-tweets'
   * 'spotify-this-song'
-  * 'movies-this'
+  * 'movie-this'
   * 'do-what-it-says'
 
 ##Data that each Command Returns

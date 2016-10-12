@@ -38,7 +38,7 @@ switch(command){
     }
   break;
 
-  case 'movies-this':
+  case 'movie-this':
     if (s) {
       movieInfo(s)
     }
@@ -67,7 +67,7 @@ function myTweets(){
         console.log('@Muhammeta27: ' + tweets[i].text + " Tweeted at: " + postDate);
         console.log('-------------------');
 
-        // append info to log.txt
+        // append info to log.txt[1
         fs.appendFile('log.txt', '@Muhammeta27: ' + tweets[i].text + ' Tweeted At: ' + postDate.substring(0, 19) + '\r\n'
           + '-------------------------------------------------------------' + '\r\n');
       }
@@ -79,29 +79,35 @@ function myTweets(){
 }
 
 // Logic for Spotify command
-function spotifySong(){
+function spotifySong(s){
   spotify.search({ type: 'track', query: s }, function( error, data) {
-    if( !error ){
-      for( var i=0; i<data.tracks.items.length; i++){
-        var songInfo = data.tracks.items[i];
-        // Lists artists, song name, preview link of song from Spotify, and album of song
-        console.log('Artist: ' + songInfo.artists[0].name);
-        console.log('Song: ' + songInfo.name);
-        console.log('Preview URL: ' + songInfo.preview_url);
-        console.log('Album: ' + songInfo.album.name);
-        console.log('-------------------------------------------------------------');
-        
-        // append info to log.txt
-        fs.appendFile('log.txt', '-------------------------------------------------------------' + '\r\n'
-          + songInfo.artists[0].name + '\r\n'
-          + songInfo.name + '\r\n'
-          + songInfo.preview_url + '\r\n'
-          + songInfo.album.name + '\r\n'
-          + "-------------------------------------------------------------" + '\r\n' );
+    console.log(s);
+    if(s == ''){
+      console.log('Artist: 50 Cent')
+    } else{
+      console.log('Yeaaaa boyiiiiiiiiiiii');
+      if( !error ){
+        for( var i=0; i<data.tracks.items.length; i++){
+          var songInfo = data.tracks.items[i];
+          // Lists artists, song name, preview link of song from Spotify, and album of song
+          console.log('Artist: ' + songInfo.artists[0].name);
+          console.log('Song: ' + songInfo.name);
+          console.log('Preview URL: ' + songInfo.preview_url);
+          console.log('Album: ' + songInfo.album.name);
+          console.log('-------------------------------------------------------------');
+          
+          // append info to log.txt
+          fs.appendFile('log.txt', '-------------------------------------------------------------' + '\r\n'
+            + songInfo.artists[0].name + '\r\n'
+            + songInfo.name + '\r\n'
+            + songInfo.preview_url + '\r\n'
+            + songInfo.album.name + '\r\n'
+            + "-------------------------------------------------------------" + '\r\n' );
+        }
       }
-    }
-    else {
-      console.log('Error!');
+      else {
+        console.log('Error!');
+      }
     }
   });
 }
@@ -109,7 +115,7 @@ function spotifySong(){
 
 
 // Logic to get OMDB info
-function movieInfo(){
+function movieInfo(s){
   var omdbURL = 'http://www.omdbapi.com/?t=' + s + '&plot=short&tomatoes=true';
   request(omdbURL, function (error, response, body){
     if(!error && response.statusCode == 200){
@@ -155,12 +161,13 @@ function movieInfo(){
 
 
 // Logic to get do-what-it-says info
-// function justDoIt(){
-//   fs.readFile('random.txt', "utf8", function(error, data){
-//     var txt = data.split(',');
-//     spotifySong(txt[1]);
-//   });
-// }
+function justDoIt(){
+  fs.readfile('random.txt', 'utf8', function(error,data){
+    var text = data.split(',');
+    spotifySong(text[1]);
+  });
+}
+
 
 
 
