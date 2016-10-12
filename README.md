@@ -36,7 +36,7 @@ Rutgers Coding Bootcamp Week 10 assignment was to create a LIRI app similar to t
     *Takes text from random.txt and runs the command listed in there (spotify-this-song in this case)
 
   ##Technologies 
-1. Node package managers
+* Node package managers
   * [Twitter](https://www.npmjs.com/package/twitter)
   * [Spotify](https://www.npmjs.com/package/spotify)
   * [Request](https://www.npmjs.com/package/request)
