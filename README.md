@@ -33,9 +33,9 @@ Rutgers Coding Bootcamp Week 10 assignment was to create a LIRI app similar to t
   *If no movie is entered, it will default to 'Mr. Nobody'
 
 4. 'node liri.js do-what-it-says'
-    *Takes text from random.txt and runs the command listed in there (spotify-this-song in this case)
+  *Takes text from random.txt and runs the command listed in there (spotify-this-song in this case)
 
-  ##Technologies Used
+##Technologies Used
 * Node package managers
   * [Twitter](https://www.npmjs.com/package/twitter)
   * [Spotify](https://www.npmjs.com/package/spotify)
