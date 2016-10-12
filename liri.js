@@ -52,7 +52,7 @@ switch(command){
   break;
 
   default:
-    console.log('{Enter one of the following commands: my-tweets, spotify-this-song, movies-this, do-what-it-says');
+    console.log('{Enter one of the following commands: my-tweets, spotify-this-song, movies-this, do-what-it-says}');
   break;
 }
 
@@ -68,8 +68,8 @@ function myTweets(){
         console.log('-------------------');
 
         // append info to log.txt
-        fs.appendFile('log.txt', '@Muhammeta27: ' + tweets[i].text + ' Tweeted At: ' + postDate.substring(0, 19));
-        fs.appendFile('log.txt', '-----------------------');
+        fs.appendFile('log.txt', '@Muhammeta27: ' + tweets[i].text + ' Tweeted At: ' + postDate.substring(0, 19) + '\r\n'
+          + '-------------------------------------------------------------' + '\r\n');
       }
     }
     else{
@@ -89,18 +89,19 @@ function spotifySong(){
         console.log('Song: ' + songInfo.name);
         console.log('Preview URL: ' + songInfo.preview_url);
         console.log('Album: ' + songInfo.album.name);
-        console.log('--------------------');
+        console.log('-------------------------------------------------------------');
         
         // append info to log.txt
-        fs.appendFile('log.txt', songInfo.artists[0].name);
-        fs.appendFile('log.txt', songInfo.name);
-        fs.appendFile('log.txt', songInfo.preview_url);
-        fs.appendFile('log.txt', songInfo.album.name);
-        fs.appendFile('log.txt', "-----------------------");
+        fs.appendFile('log.txt', '-------------------------------------------------------------' + '\r\n'
+          + songInfo.artists[0].name + '\r\n'
+          + songInfo.name + '\r\n'
+          + songInfo.preview_url + '\r\n'
+          + songInfo.album.name + '\r\n'
+          + "-------------------------------------------------------------" + '\r\n' );
       }
     }
     else {
-        console.log('Error!');
+      console.log('Error!');
     }
   });
 }
@@ -123,20 +124,28 @@ function movieInfo(){
       console.log("Rotten Tomatoes Rating: " + body.tomatoRating);
       console.log("Rotten Tomatoes URL: " + body.tomatoURL);
       // append info to log.txt 
-      fs.appendFile('log.txt', "Title: " + body.Title);
-      fs.appendFile('log.txt', "Release Year: " + body.Year);
-      fs.appendFile('log.txt', "IMdB Rating: " + body.imdbRating);
-      fs.appendFile('log.txt', "Country: " + body.Country);
-      fs.appendFile('log.txt', "Language: " + body.Language);
-      fs.appendFile('log.txt', "Plot: " + body.Plot);
-      fs.appendFile('log.txt', "Actors: " + body.Actors);
-      fs.appendFile('log.txt', "Rotten Tomatoes Rating: " + body.tomatoRating);
-      fs.appendFile('log.txt', "Rotten Tomatoes URL: " + body.tomatoURL);
+      fs.appendFile('log.txt', '-------------------------------------------------------------' + '\r\n'
+        + "Title: " + body.Title +  '\r\n'
+        + "Release Year: " + body.Year +  '\r\n'
+        + "IMdB Rating: " + body.imdbRating +  '\r\n'
+        + "Country: " + body.Country +  '\r\n'
+        + "Language: " + body.Language +  '\r\n'
+        + "Plot: " + body.Plot +  '\r\n' 
+        + "Actors: " + body.Actors +  '\r\n'
+        + "Rotten Tomatoes Rating: " + body.tomatoRating +  '\r\n'
+        + "Rotten Tomatoes URL: " + body.tomatoURL +  '\r\n'
+        + '-------------------------------------------------------------' + '\r\n');
     }
-    else if ( movie == 'Mr.Nobody' ){
-      console.log('---------------------');
-      fs.appendFile('log.txt', "If you haven't watched 'Mr. Nobody,' then you should: http://www.imdb.com/title/tt0485947/");
-      fs.appendFile('log.txt', "It's on Netflix!");
+    if ( s  == '' ){
+      console.log('-------------------------------------------------------------' + '\r\n' 
+        + "If you haven't watched 'Mr. Nobody,' then you should: " + '\r\n'
+        + "http://www.imdb.com/title/tt0485947/" + '\r\n'
+        + "It's on Netflix!" + '\r\n'
+        + '--------------------------------------' + '\r\n');
+      fs.appendFile('log.txt', '-------------------------------------------------------------' + '\r\n' 
+        + "If you haven't watched 'Mr. Nobody,' then you should: http://www.imdb.com/title/tt0485947/" + '\r\n'
+        + "It's on Netflix!" + '\r\n'
+        + '-------------------------------------------------------------' + '\r\n');
     }
     else{
       console.log('Error!');
@@ -146,11 +155,12 @@ function movieInfo(){
 
 
 // Logic to get do-what-it-says info
-function justDoIt(){
-  // fs.readFile('random.txt', "utf8", function(error, data){
-  //   var text = data.split(',');
-  //   spotifySong(text[1]);
-}
+// function justDoIt(){
+//   fs.readFile('random.txt', "utf8", function(error, data){
+//     var txt = data.split(',');
+//     spotifySong(txt[1]);
+//   });
+// }
 
 
 
