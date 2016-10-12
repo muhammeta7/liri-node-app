@@ -1,6 +1,6 @@
 # liri-node-app
 
-Rutgers Coding Bootcamp Week 10 assignment was to create a LIRI app similar to that of SIRI on iPhones using Node.js. Liri is a command line node application that takes in user commands and returns data based of the following commands: 
+Rutgers Coding Bootcamp Week 10 assignment was to create a LIRI app similar to that of SIRI on iPhones using Node.js. LIRI is a command line node application that takes in user commands and returns data based of the following commands: 
   
   * 'my-tweets'
   * 'spotify-this-song'
@@ -30,12 +30,12 @@ Rutgers Coding Bootcamp Week 10 assignment was to create a LIRI app similar to t
     * Actors 
     * Rotten Tomatoes Rating
     * Rotten Tomatoes URL
-
   *If no movie is entered, it will default to 'Mr. Nobody'
+
   4. 'node liri.js do-what-it-says'
     *Takes text from random.txt and runs the command listed in there (spotify-this-song in this case)
 
-  ##Technologies 
+  ##Technologies Used
 * Node package managers
   * [Twitter](https://www.npmjs.com/package/twitter)
   * [Spotify](https://www.npmjs.com/package/spotify)
